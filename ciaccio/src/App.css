@@ -1,0 +1,571 @@
+/* AbbVie-inspired color palette */
+:root {
+  --abbvie-deep-blue: #071D49;
+  --abbvie-blue: #0D2C6C;
+  --abbvie-purple: #6B2D5B;
+  --abbvie-magenta: #9B2574;
+  --abbvie-light: #F5F7FA;
+  --abbvie-white: #FFFFFF;
+  --abbvie-gray: #6C757D;
+  --abbvie-dark-gray: #343A40;
+  --gradient-primary: linear-gradient(135deg, var(--abbvie-deep-blue) 0%, var(--abbvie-purple) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--abbvie-purple) 0%, var(--abbvie-magenta) 100%);
+  --shadow-sm: 0 2px 4px rgba(7, 29, 73, 0.1);
+  --shadow-md: 0 4px 12px rgba(7, 29, 73, 0.15);
+  --shadow-lg: 0 8px 24px rgba(7, 29, 73, 0.2);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--abbvie-dark-gray);
+  background-color: var(--abbvie-light);
+}
+
+.App {
+  text-align: left;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--abbvie-white);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--abbvie-deep-blue);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--abbvie-blue);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--transition);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--abbvie-deep-blue);
+  color: var(--abbvie-white);
+}
+
+.github-link {
+  background: var(--gradient-accent);
+  color: var(--abbvie-white) !important;
+}
+
+.github-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Hero Section */
+.hero {
+  background: var(--gradient-primary);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  color: var(--abbvie-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-avatar {
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  opacity: 0.95;
+  margin-bottom: 0.25rem;
+}
+
+.hero-location {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--abbvie-white);
+  color: var(--abbvie-deep-blue);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--abbvie-white);
+  border: 2px solid var(--abbvie-white);
+}
+
+.btn-secondary:hover {
+  background: var(--abbvie-white);
+  color: var(--abbvie-deep-blue);
+}
+
+/* Sections */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-alt {
+  background: var(--abbvie-white);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--abbvie-deep-blue);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-accent);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* Cards */
+.card {
+  background: var(--abbvie-white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.summary-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--abbvie-gray);
+  line-height: 1.8;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-primary);
+  border-radius: 3px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -6px;
+  top: 2rem;
+  width: 15px;
+  height: 15px;
+  background: var(--abbvie-magenta);
+  border-radius: 50%;
+  border: 3px solid var(--abbvie-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-header h3 {
+  color: var(--abbvie-deep-blue);
+  font-size: 1.25rem;
+}
+
+.badge {
+  background: var(--gradient-accent);
+  color: var(--abbvie-white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.company {
+  color: var(--abbvie-purple);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  color: var(--abbvie-gray);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--abbvie-dark-gray);
+}
+
+.achievements li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--abbvie-magenta);
+  font-weight: bold;
+}
+
+/* Education */
+.education-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.education-icon {
+  font-size: 3rem;
+}
+
+.education-content h3 {
+  color: var(--abbvie-deep-blue);
+  margin-bottom: 0.5rem;
+}
+
+.institution {
+  color: var(--abbvie-purple);
+  font-weight: 500;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  text-align: center;
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+  color: var(--abbvie-deep-blue);
+  margin-bottom: 1.5rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.skill-tag {
+  background: var(--abbvie-light);
+  color: var(--abbvie-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(7, 29, 73, 0.1);
+  transition: var(--transition);
+}
+
+.skill-tag:hover {
+  background: var(--abbvie-deep-blue);
+  color: var(--abbvie-white);
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  background: var(--gradient-primary);
+  color: var(--abbvie-white);
+}
+
+.contact-card:hover h3,
+.contact-card:hover p {
+  color: var(--abbvie-white);
+}
+
+.contact-card:hover .github-icon {
+  fill: var(--abbvie-white);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+  color: var(--abbvie-deep-blue);
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+.contact-card p {
+  color: var(--abbvie-gray);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+/* Footer */
+.footer {
+  background: var(--abbvie-deep-blue);
+  color: var(--abbvie-white);
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer p {
+  opacity: 0.8;
+}
+
+.footer-github {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--abbvie-white);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-github:hover {
+  opacity: 0.8;
+}
+
+/* GitHub Icon */
+.github-icon {
+  vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .education-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer .container {
+    flex-direction: column;
+  }
+
+  .timeline::before {
+    left: 6px;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
+
+  .timeline-marker {
+    left: 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .hero-links,
+  .footer {
+    display: none;
+  }
+
+  .hero {
+    padding: 2rem;
+    background: var(--abbvie-deep-blue);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .section {
+    padding: 1.5rem 0;
+    page-break-inside: avoid;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
